@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="sparkly-text.js"></script>
+    <link rel="icon" type="image/x-icon" href="icon.gif">
+
+
+</head>
+<body>
+
+    <script src="script.js"></script>
+    <script>
+        animateTitle();
+    </script>
+
+    <div id="intro-screen">
+        <p>Click to Enter...</p>
+    </div>
+
+    <video autoplay loop muted>
+        <source src="test.mp4" type="video/mp4">
+    </video>
+
+    <div class="video-overlay"></div>
+
+    <audio id="background-music" loop>
+        <source src="music3.mp3" type="audio/mp3">
+    </audio>
+    
+
+    <img src="https://cdn.discordapp.com/avatars/1178527512272310344/58e7e796dd24c6ab2e410b4fdb530918.webp" alt="Perfil" class="profile-pic">
+    <div class="glow"><sparkly-text number-of-sparkles="5" style="--sparkly-text-color: white">notsag</sparkly-text></div>
+    <p> <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="4 2 16 20"><path fill="currentColor" d="M12 12q.825 0 1.413-.587T14 10t-.587-1.412T12 8t-1.412.588T10 10t.588 1.413T12 12m0 10q-4.025-3.425-6.012-6.362T4 10.2q0-3.75 2.413-5.975T12 2t5.588 2.225T20 10.2q0 2.5-1.987 5.438T12 22"></path></svg> Argentina</p>
+    
+    <div class="profile-card">
+        <div class="icons">
+            <a href="https://steamcommunity.com/id/unalterable/" target="_blank">
+                <i class="fab fa-steam"></i>
+            </a>
+            <a href="https://github.com/ntsg-hub" target="_blank">
+                <i class="fab fa-github"></i>
+            </a>
+        </div>
+    </div>
+
+    <script>
+
+        document.getElementById("intro-screen").addEventListener("click", function() {
+        let introScreen = this;
+        let audio = document.getElementById("background-music");
+
+        introScreen.style.transition = "opacity 1.5s ease-out";
+        introScreen.style.opacity = "0";
+        setTimeout(function() {
+        introScreen.style.zIndex = "-1";  }, 1000);
+    
+        audio.play();
+        });
+
+    </script>
+
+</body>
+
+</html>
