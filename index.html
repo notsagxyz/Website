@@ -64,6 +64,22 @@
         audio.play();
         });
 
+        document.addEventListener("DOMContentLoaded", function () {
+        const video = document.querySelector("video");
+
+
+            video.play().catch(error => {
+                console.log("Reproducción bloqueada, esperando interacción del usuario...");
+            });
+
+        
+            document.addEventListener("click", function () {
+                video.play();
+            });
+
+        });
+
+
     </script>
 
 </body>
