@@ -24,7 +24,7 @@
         <p>Click to Enter...</p>
     </div>
 
-    <video autoplay loop muted>
+    <video preload="metadata" autoplay loop muted>
         <source src="https://r2.guns.lol/275088ec-4809-4d40-919f-2656250018a2.mp4" type="video/mp4">
     </video>
 
@@ -51,38 +51,39 @@
     </div>
 
     <script>
-
-                document.addEventListener("DOMContentLoaded", function () {
-                const introScreen = document.getElementById("intro-screen");
-                const audio = document.getElementById("background-music");
-                const video = document.querySelector("video");
-            
-               
-                introScreen.addEventListener("click", function() {
-                    introScreen.style.transition = "opacity 1.5s ease-out";
-                    introScreen.style.opacity = "0";
-            
-                    setTimeout(() => {
-                        introScreen.style.display = "none"; 
-                    }, 1500); 
-            
-                    audio.play().catch(err => console.warn("Audio error", err));
-                });
-            
-             
-                video.play().catch(error => {
-                    console.warn("AutoPlay video error", error);
-                });
-            
-               
-                document.addEventListener("click", function () {
-                    if (video.paused) {
-                        video.play().catch(error => console.warn("Error video:", error));
-                    }
-                });
+        document.addEventListener("DOMContentLoaded", function () {
+            const introScreen = document.getElementById("intro-screen");
+            const audio = document.getElementById("background-music");
+            const video = document.querySelector("video");
+    
+            introScreen.addEventListener("click", function() {
+                introScreen.style.transition = "opacity 1.5s ease-out";
+                introScreen.style.opacity = "0";
+    
+                setTimeout(() => {
+                    introScreen.style.display = "none"; 
+                }, 1500); 
+    
+                audio.play().catch(err => console.warn("Audio error", err));
+                
+                
+                video.currentTime = 0;
+                video.play().catch(error => console.warn("AutoPlay video error", error));
             });
+    
+            
+            video.pause();
+            
+            
+            document.addEventListener("click", function () {
+                if (video.paused) {
+                    video.currentTime = 0; // Reiniciar el video
+                    video.play().catch(error => console.warn("Error video:", error));
+                }
+            });
+        });
+</script>
 
-    </script>
 
 </body>
 
