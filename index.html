@@ -52,33 +52,35 @@
 
     <script>
 
-        document.getElementById("intro-screen").addEventListener("click", function() {
-        let introScreen = this;
-        let audio = document.getElementById("background-music");
-
-        introScreen.style.transition = "opacity 1.5s ease-out";
-        introScreen.style.opacity = "0";
-        setTimeout(function() {
-        introScreen.style.zIndex = "-1";  }, 1000);
-    
-        audio.play();
-        });
-
-        document.addEventListener("DOMContentLoaded", function () {
-        const video = document.querySelector("video");
-
-
-            video.play().catch(error => {
-                console.log("Reproducción bloqueada, esperando interacción del usuario...");
+                document.addEventListener("DOMContentLoaded", function () {
+                const introScreen = document.getElementById("intro-screen");
+                const audio = document.getElementById("background-music");
+                const video = document.querySelector("video");
+            
+               
+                introScreen.addEventListener("click", function() {
+                    introScreen.style.transition = "opacity 1.5s ease-out";
+                    introScreen.style.opacity = "0";
+            
+                    setTimeout(() => {
+                        introScreen.style.display = "none"; 
+                    }, 1500); 
+            
+                    audio.play().catch(err => console.warn("Audio error", err));
+                });
+            
+             
+                video.play().catch(error => {
+                    console.warn("AutoPlay video error", error);
+                });
+            
+               
+                document.addEventListener("click", function () {
+                    if (video.paused) {
+                        video.play().catch(error => console.warn("Error video:", error));
+                    }
+                });
             });
-
-        
-            document.addEventListener("click", function () {
-                video.play();
-            });
-
-        });
-
 
     </script>
 
