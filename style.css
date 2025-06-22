@@ -70,6 +70,7 @@ video {
     height: 120px;
     border-radius: 50%;
     margin: 20px;
+    box-shadow: 0 0 30px #ffffff;
 }
 
 .icons {
