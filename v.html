@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video</title>
+
+  <!-- Discord / OpenGraph -->
+  <meta property="og:type" content="video.other" />
+  <meta property="og:title" content="Video" />
+  <meta property="og:description" content="Click para ver el video" />
+  <meta property="og:image" content="https://drive.google.com/thumbnail?id=1dJxEYsI0LTccMxZ-xtVC4462tQd1_9HS&sz=w1280" />
+
+  <!-- Twitter Player (Discord lo usa para el embed) -->
+  <meta name="twitter:card" content="player" />
+  <meta name="twitter:title" content="Video" />
+  <meta name="twitter:description" content="Click para ver el video" />
+  <meta name="twitter:player" content="https://drive.google.com/file/d/1dJxEYsI0LTccMxZ-xtVC4462tQd1_9HS/preview" />
+  <meta name="twitter:player:width" content="1280" />
+  <meta name="twitter:player:height" content="720" />
+  <meta name="twitter:image" content="https://drive.google.com/thumbnail?id=1dJxEYsI0LTccMxZ-xtVC4462tQd1_9HS&sz=w1280" />
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #000; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+    iframe { width: 100vw; height: 100vh; border: none; }
+  </style>
+</head>
+<body>
+  <iframe 
+    src="https://drive.google.com/file/d/1dJxEYsI0LTccMxZ-xtVC4462tQd1_9HS/preview"
+    allowfullscreen
+    allow="autoplay">
+  </iframe>
+</body>
+</html>
